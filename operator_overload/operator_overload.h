@@ -52,6 +52,38 @@ public:
 		return (v == t5);
 	}
 
+	//operator overload +
+	//the object is int
+	operator_overload operator + (const int& a)
+	{
+		operator_overload oo;
+		oo.v = v + a;
+		return oo;
+	}
+
+	//the object is object
+	operator_overload operator + (const operator_overload &b)
+	{
+		operator_overload oo1;
+		oo1.v = v + b.v;
+
+		return oo1;
+	}
+
+	//operator overload +=
+	// object + object
+	operator_overload &operator += (const operator_overload &c)
+	{
+		v += c.v;
+		return *this;
+	}
+
+	//object + int
+	operator_overload& operator += (const int& d)
+	{
+		v += d;
+		return *this;
+	}
 };
 
 #endif // !OPERATOR_H
